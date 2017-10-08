@@ -1,26 +1,3 @@
-var GiphyApi = {
-    API_KEY: 'Rh13IWLYRuIyV9xGS5whERM1HlGMjrTK',
-    LIMIT: 30,
-    RATING: 'R', //Y, G, PG, PG-13, R
-    LANGUAGE: 'iw',
-    url: {
-        _set: function (url) {
-            return url
-                .replace("<api_key>", GiphyApi.API_KEY)
-                .replace("<limit>", GiphyApi.LIMIT)
-                .replace("<lang>", GiphyApi.LANGUAGE)
-                .replace("<rating>", GiphyApi.RATING);
-        },
-        search: function (q) {
-            return GiphyApi.url._set("https://api.giphy.com/v1/gifs/search?api_key=<api_key>&q=<q>&limit=<limit>&offset=0&rating=<rating>&lang=<lang>")
-                .replace("<q>", q);
-        },
-        trending: function () {
-            return GiphyApi.url._set("https://api.giphy.com/v1/gifs/trending?api_key=<api_key>&limit=<limit>&rating=<rating>");
-        }
-    }
-}
-
 var onSearch = (function () {
     var timeout = null,
         defaultOptions = {
@@ -51,7 +28,7 @@ var onSearch = (function () {
 var popular = function () {
     loading();
 
-    $.ajax({ url: GiphyApi.url.trending() })
+    GiphyApi.trending()
         .done(function (data) {
             var photos = data.data;
             showPhotos(photos);
@@ -94,9 +71,9 @@ var showPhotos = function (photos, q) {
     photos.forEach(function (photo, i) {
         var linkUrl = photo.images.original.url;
         var imageThumbUrl = photo.images.fixed_height.url;
-        
+
         var link = $('<a>').attr('target', '_blank').attr('href', linkUrl);
-        var img = $('<img>').attr('alt',photo.username);
+        var img = $('<img>').attr('alt', photo.username);
 
         img.attr('src', imageThumbUrl);
         link.html(img).hide();
@@ -115,19 +92,14 @@ var search = (function () {
         loading();
         lastSearch = q;
 
-        $.ajax({
-            url: GiphyApi.url.search(q),
-        })
+        GiphyApi.search(q)
             .done(function (data) {
-                var photos = data.data;
-                showPhotos(photos, q);
+                showPhotos(data.data, q);
             })
             .fail(function (data) {
                 $('.loading').hide();
                 resultsText(q, true, null);
             })
-
-
     };
 })();
 
