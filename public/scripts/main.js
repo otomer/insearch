@@ -94,9 +94,9 @@ var showPhotos = function (photos, q) {
     photos.forEach(function (photo, i) {
         var linkUrl = photo.images.original.url;
         var imageThumbUrl = photo.images.fixed_height.url;
-
+        
         var link = $('<a>').attr('target', '_blank').attr('href', linkUrl);
-        var img = $('<img>');
+        var img = $('<img>').attr('alt',photo.username);
 
         img.attr('src', imageThumbUrl);
         link.html(img).hide();
