@@ -1,0 +1,23 @@
+{
+  "name": "insearch",
+  "version": "1.0.0",
+  "description": "myinsearch",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+   "dependencies": {
+    "express": "^4.16.1",
+    "body-parser": "^1.18.2",
+    "dateformat": "^3.0.2",
+    "nodemon": "^1.12.1"
+   },
+  "author": "john doe",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.16.1",
+    "body-parser": "^1.18.2",
+    "dateformat": "^3.0.2",
+    "nodemon": "^1.12.1"
+  }
+}

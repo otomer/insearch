@@ -1,1 +1,1 @@
-# insearch
+# https://developers.giphy.com/explorer/

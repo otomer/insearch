@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Just an Instant Search</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id='header_holder'>
+			<form class="form-search">
+					<input type="text" class="search" placeholder="Search for something amazing? (GIF/Stickers)" required>
+					<input type="submit" class="submit" />
+				</form>
+		<div id='header'>
+			<div id='blue'></div>
+			<div id='pink'></div>
+			<div id='green'></div>
+			<div id='orange'></div>
+			<div id='blue2'></div>
+			<div id='purple2'></div>
+		</div>
+		<!-- end header -->
+	</div>
+	<!-- end header_holder -->
+
+	
+	<div class="loading" style="margin-top:100px;"></div>
+	<div id="photos"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://rawgithub.com/500px/500px-js-sdk/master/500px.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+
+</html>
