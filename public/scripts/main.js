@@ -30,8 +30,7 @@ var popular = function () {
 
     GiphyApi.trending()
         .done(function (data) {
-            var photos = data.data;
-            showPhotos(photos);
+            showPhotos(data.data);
         })
         .fail(function (data) {
             $('.loading').hide();
